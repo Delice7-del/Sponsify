@@ -1,0 +1,49 @@
+/* src/pages/ChildDetail.css */
+
+.child-detail {
+  max-width: 900px;
+  margin: 40px auto;
+  display: flex;
+  gap: 40px;
+  padding: 0 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.child-detail__image {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.child-detail__info {
+  flex: 1;
+  color: #003049;
+}
+
+.child-detail__info h1 {
+  margin-bottom: 12px;
+  font-size: 2.4rem;
+}
+
+.child-detail__info p {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.btn {
+  background-color: #ffd60a;
+  color: #003049;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: #ffa200;
+}

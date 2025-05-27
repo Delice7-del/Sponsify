@@ -1,0 +1,85 @@
+.favorites-container {
+  padding: 5rem 2rem;
+  background-color: #f8f9fa;
+  min-height: calc(100vh - 64px);
+}
+
+.favorites-container h2 {
+  text-align: center;
+  color: #003049;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.favorites-empty {
+  text-align: center;
+  padding: 5rem 2rem;
+  background-color: #f8f9fa;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.favorites-empty h2 {
+  color: #003049;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.favorites-empty p {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.card-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.remove-favorite-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.remove-favorite-button:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .favorites-container {
+    padding: 3rem 1rem;
+  }
+
+  .favorites-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .card-buttons {
+    flex-direction: column;
+  }
+
+  .remove-favorite-button,
+  .sponsor-button {
+    width: 100%;
+    text-align: center;
+  }
+} 

@@ -1,0 +1,138 @@
+.sponsor-form-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 2rem;
+}
+
+.sponsor-form-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.child-preview {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.child-preview img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.child-details h3 {
+  color: #003049;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.child-details p {
+  color: #555;
+  margin: 0.3rem 0;
+  font-size: 1rem;
+}
+
+.sponsor-form {
+  padding: 1rem;
+}
+
+.sponsor-form h2 {
+  color: #003049;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #003049;
+  box-shadow: 0 0 0 2px rgba(0, 48, 73, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #003049;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.submit-button:hover {
+  background-color: #004166;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sponsor-form-container {
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+
+  .sponsor-form-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
+  .child-preview {
+    padding: 1rem;
+  }
+
+  .child-preview img {
+    height: 180px;
+  }
+
+  .sponsor-form {
+    padding: 0;
+  }
+
+  .sponsor-form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+} 

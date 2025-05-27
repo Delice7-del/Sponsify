@@ -1,0 +1,32 @@
+/* src/pages/AdminDashboard.css */
+
+.admin-dashboard {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #003049;
+}
+
+.admin-dashboard h1 {
+  margin-bottom: 30px;
+}
+
+.admin-dashboard nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-dashboard nav ul li {
+  margin: 15px 0;
+}
+
+.admin-dashboard nav ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffd60a;
+}
+
+.admin-dashboard nav ul li a:hover {
+  text-decoration: underline;
+}
