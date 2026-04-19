@@ -18,29 +18,37 @@ import SponsorshipForm from "./pages/ChildForm";
 import About from "./pages/About";
 import LearnMore from "./pages/LearnMore";
 import Contact from "./pages/Contact";
+import Education from "./pages/Education";
+import Safety from "./pages/Safety";
+import Outreach from "./pages/Outreach";
+
 const App = () => {
   return (
     <div className="app-wrapper">
       <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/sponsorship" element={<Sponsorship />} />
-        <Route path="/child/:id" element={<ChildDetail />} />
-        <Route path="/sponsor-form/:id" element={<SponsorForm />} />
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/sponsorship" element={<Sponsorship />} />
+          <Route path="/child/:id" element={<ChildDetail />} />
+          <Route path="/sponsor-form/:id" element={<SponsorForm />} />
 
-        <Route path="/sponsor-login" element={<SponsorLogin />} />
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="/thank-you" element={<ThankYou />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/admin" element={<Dashboard />} />
-        <Route path="/sponsor-form/:childId" element={<SponsorshipForm />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/learn-more" element={<LearnMore />} />
-       <Route path="/contact" element={<Contact />} />
-
-      </Routes>
+          <Route path="/sponsor-login" element={<SponsorLogin />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/thank-you" element={<ThankYou />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/admin" element={<Dashboard />} />
+          <Route path="/sponsor-form/:childId" element={<SponsorshipForm />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/learn-more" element={<LearnMore />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/education" element={<Education />} />
+          <Route path="/safety" element={<Safety />} />
+          <Route path="/outreach" element={<Outreach />} />
+        </Routes>
+      </main>
 
       <Footer />
     </div>

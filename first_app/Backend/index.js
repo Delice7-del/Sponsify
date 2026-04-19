@@ -15,8 +15,10 @@ mongoose.connect(process.env.MONGO_URI)
 .catch(err => console.error('Mongo DB failed'));
 
 const childRoutes= require('../Backend/routes/childRoutes');
+const userRoutes= require('../Backend/routes/userRoutes');
 
 app.use('/api/child', childRoutes);
+app.use('/api/auth', userRoutes);
 
 const PORT= process.env.PORT || 5000;
 app.listen(PORT, () => {

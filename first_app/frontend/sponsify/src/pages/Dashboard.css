@@ -1,15 +1,15 @@
 /* src/pages/AdminDashboard.css */
-
 .admin-dashboard {
   max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #003049;
+  margin: 80px auto;
+  padding: 0 2rem;
+  color: var(--text-primary);
 }
 
 .admin-dashboard h1 {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  letter-spacing: -0.03em;
 }
 
 .admin-dashboard nav ul {
@@ -18,15 +18,21 @@
 }
 
 .admin-dashboard nav ul li {
-  margin: 15px 0;
+  margin: 20px 0;
+  padding: 1rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
 }
 
 .admin-dashboard nav ul li a {
   text-decoration: none;
-  font-weight: bold;
-  color: #ffd60a;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .admin-dashboard nav ul li a:hover {
-  text-decoration: underline;
+  color: #5ce1ff;
 }

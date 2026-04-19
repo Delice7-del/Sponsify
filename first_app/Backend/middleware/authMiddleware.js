@@ -1,13 +1,13 @@
-const json= require(jsonwebtoken);
+const jwt = require('jsonwebtoken');
 const User= require('../models/UserSchema');
 
 const protect= async (req,res,next) =>{
 
       let token;
-if(req.headers.authentication && req.headers.authentication.startsWith('Bearer')){
+if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
   
     try{
-        const token= req.headers.authentication.split(' ')[1];
+        const token= req.headers.authorization.split(' ')[1];
 
         const decoded= jwt.verify(token, process.env.JWT_SECRET);
         req.user= await User.findById(decoded.id).select('-password');
@@ -35,5 +35,5 @@ const admin= (req,res,next) =>{
 
 };
 
-module.exports= {protect,email};
+module.exports= {protect};
 

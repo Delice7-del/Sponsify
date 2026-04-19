@@ -1,12 +1,12 @@
 /* src/pages/ChildDetail.css */
 
 .child-detail {
-  max-width: 900px;
-  margin: 40px auto;
+  max-width: 1200px;
+  margin: 100px auto;
   display: flex;
-  gap: 40px;
-  padding: 0 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  gap: 60px;
+  padding: 0 2rem;
+  color: var(--text-primary);
 }
 
 .child-detail__image {

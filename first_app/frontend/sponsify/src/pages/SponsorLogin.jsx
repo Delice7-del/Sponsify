@@ -7,9 +7,10 @@ import './SponsorLogin.css';
 const SponsorLogin = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    sponsorId: '',
+    email: '',
     password: ''
   });
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,9 +22,13 @@ const SponsorLogin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically verify the sponsor's credentials
-    // For now, we'll just navigate to the sponsor form
-    navigate('/sponsor-form/dashboard');
+    try {
+      const res = await axios.post('/api/auth/login', { email: formData.email, password: formData.password });
+      localStorage.setItem('token', res.data.token);
+      navigate('/sponsor-form/dashboard');
+    } catch (err) {
+      setError(err.response?.data?.message || 'Login failed');
+    }
   };
 
   return (
@@ -34,17 +39,19 @@ const SponsorLogin = () => {
           Access your sponsorship dashboard to view your sponsored children and manage your contributions.
         </p>
         
+        {error && <p className="error-msg" style={{color: 'red'}}>{error}</p>}
+        
         <form onSubmit={handleSubmit} className="sponsor-login-form">
           <div className="form-group">
-            <label htmlFor="sponsorId">Sponsor ID</label>
+            <label htmlFor="email">Email</label>
             <input
-              type="text"
-              id="sponsorId"
-              name="sponsorId"
-              value={formData.sponsorId}
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
               onChange={handleChange}
               required
-              placeholder="Enter your Sponsor ID"
+              placeholder="Enter your email"
             />
           </div>
 

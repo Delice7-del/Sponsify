@@ -28,7 +28,7 @@ const SponsorshipForm = () => {
   };
 
   return (
-    <div className="p-6 max-w-md mx-auto bg-white shadow rounded">
+    <div className="p-6 max-w-md mx-auto bg-white/10 backdrop-blur-md shadow rounded">
       <h2 className="text-xl font-bold mb-4">Sponsor a Child</h2>
       {success && <p className="text-green-600 mb-3">Thank you for sponsoring!</p>}
       <form onSubmit={handleSubmit} className="space-y-4">

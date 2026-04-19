@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getFavorites, removeFromFavorites } from '../utils/favorites';
-import './Favorites.css';
+import { getFavorites } from '../utils/favorites';
+import ChildCard from '../pages/ChildCard';
+import "./Favorites.css";
 
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
@@ -10,62 +11,46 @@ const Favorites = () => {
     setFavorites(getFavorites());
   }, []);
 
-  const handleRemoveFavorite = (childId) => {
-    removeFromFavorites(childId);
-    setFavorites(getFavorites());
-  };
-
   if (favorites.length === 0) {
     return (
-      <div className="favorites-empty">
-        <h2>Your Favorites</h2>
-        <p>You haven't added any children to your favorites yet.</p>
-        <Link to="/sponsorship" className="view-more-button">
-          Browse Children
-        </Link>
+      <div className="favorites-container">
+        <section className="favorites__hero">
+          <span className="label">Saved Profiles</span>
+          <h1>YOUR <span className="italic-serif">FAVORITES.</span></h1>
+        </section>
+        
+        <div className="favorites-empty">
+          <div className="empty-content">
+            <p>You haven't saved any profiles yet. Start your journey by exploring our verified children.</p>
+            <Link to="/sponsorship" className="explore-btn">
+              Browse Profiles →
+            </Link>
+          </div>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="favorites-container">
-      <h2>Your Favorites</h2>
-      <div className="favorites-grid">
-        {favorites.map((child) => (
-          <div key={child.id} className="featured-child-card">
-            <div className="featured-child-image">
-              <img src={child.image} alt={`${child.name}'s photo`} />
-            </div>
-            <div className="featured-child-info">
-              <h3>{child.name}, {child.age}</h3>
-              <p className="child-location">{child.country}</p>
-              <p className="child-description">{child.description}</p>
-              <div className="card-buttons">
-                <Link 
-                  to={`/sponsor-form/${child.id}`} 
-                  state={{ 
-                    childName: child.name,
-                    childAge: child.age,
-                    childCountry: child.country,
-                    childImage: child.image
-                  }}
-                  className="sponsor-button"
-                >
-                  Sponsor {child.name}
-                </Link>
-                <button 
-                  onClick={() => handleRemoveFavorite(child.id)}
-                  className="remove-favorite-button"
-                >
-                  Remove from Favorites
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
+      <section className="favorites__hero">
+        <span className="label">Saved Profiles</span>
+        <h1>YOUR <span className="italic-serif">FAVORITES.</span></h1>
+        <p className="hero-text">
+          Common interest brings us together, but your choice makes the difference. 
+          The profiles you've saved are waiting for a chance to thrive.
+        </p>
+      </section>
+
+      <div className="favorites__content">
+        <div className="favorites__grid">
+          {favorites.map((child) => (
+            <ChildCard key={child.id} child={child} />
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
-export default Favorites; 
+export default Favorites;

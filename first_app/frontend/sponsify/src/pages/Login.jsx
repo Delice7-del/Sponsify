@@ -1,6 +1,6 @@
-// src/pages/Login.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { LogIn } from "lucide-react";
 import axios from "axios";
 import "./Login.css";
 
@@ -15,7 +15,7 @@ const Login = () => {
     try {
       const res = await axios.post("/api/auth/login", { email, password });
       localStorage.setItem("token", res.data.token);
-      navigate("/admin-dashboard");
+      navigate("/");
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
     }
@@ -23,25 +23,40 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <h1>Login</h1>
-      {error && <p className="error-msg">{error}</p>}
-      <form onSubmit={handleSubmit} className="login-form">
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          required
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          required
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit" className="btn-primary">Login</button>
-      </form>
+      <div className="login-card">
+        <h1>LOGIN</h1>
+        <p className="card-subtitle">Enter your credentials to access your dashboard.</p>
+        
+        {error && <p className="error-msg">{error}</p>}
+        
+        <form onSubmit={handleSubmit} className="login-form">
+          <div className="form-group">
+            <label>EMAIL ADDRESS</label>
+            <input
+              type="email"
+              placeholder="you@example.com"
+              value={email}
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          
+          <div className="form-group">
+            <label>PASSWORD</label>
+            <input
+              type="password"
+              placeholder="••••••••"
+              value={password}
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          
+          <button type="submit" className="login-btn">
+            <LogIn size={18} /> SAVE AND CONTINUE
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

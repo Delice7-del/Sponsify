@@ -1,10 +1,7 @@
-/* src/pages/ThankYou.css */
-
 .thank-you {
   text-align: center;
-  padding: 100px 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #003049;
+  padding: 160px 2rem;
+  color: var(--text-primary);
 }
 
 .thank-you h1 {

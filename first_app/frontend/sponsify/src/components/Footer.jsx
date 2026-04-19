@@ -1,7 +1,6 @@
-// src/components/Footer.jsx
-
 import React from "react";
 import { Link } from "react-router-dom";
+import { ShieldCheck } from "lucide-react";
 import "./Footer.css";
 
 const Footer = () => {
@@ -9,7 +8,10 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer__container">
         <div className="footer__logo">
-          <Link to="/">Sponsify</Link>
+          <Link to="/">
+            <ShieldCheck size={28} color="rgba(0, 209, 255, 0.8)" strokeWidth={2.5} style={{ marginBottom: '10px' }} />
+            <span>Sponsify</span>
+          </Link>
         </div>
 
         <div className="footer__links">

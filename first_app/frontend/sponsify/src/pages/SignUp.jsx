@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./Signup.css"; // Import the CSS file
+import { UserPlus } from "lucide-react";
+import "./Signup.css";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -12,36 +13,51 @@ const Signup = () => {
   };
 
   return (
-    <main className="signup-container">
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit} className="signup-form">
-        <label>Name:</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
+    <div className="signup-container">
+      <div className="signup-card">
+        <h1>SIGN UP</h1>
+        <p className="card-subtitle">Create your account to start your sponsorship journey.</p>
+        
+        <form onSubmit={handleSubmit} className="signup-form">
+          <div className="form-group">
+            <label>FULL NAME</label>
+            <input
+              type="text"
+              placeholder="Your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
 
-        <label>Email:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+          <div className="form-group">
+            <label>EMAIL ADDRESS</label>
+            <input
+              type="email"
+              placeholder="you@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-        <label>Password:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+          <div className="form-group">
+            <label>PASSWORD</label>
+            <input
+              type="password"
+              placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
 
-        <button type="submit">Sign Up</button>
-      </form>
-    </main>
+          <button type="submit" className="signup-btn">
+            <UserPlus size={18} /> CREATE ACCOUNT
+          </button>
+        </form>
+      </div>
+    </div>
   );
 };
 

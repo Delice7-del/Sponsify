@@ -1,19 +1,20 @@
 .sponsor-login-container {
   width: 100%;
   max-width: 500px;
-  margin: 5rem auto;
+  margin: 5rem auto 5rem;
   padding: 2rem;
 }
 
 .sponsor-login-content {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
   padding: 2.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .sponsor-login-content h2 {
-  color: #003049;
+  color: #ffffff;
   font-size: 2rem;
   font-weight: 600;
   text-align: center;
@@ -22,7 +23,7 @@
 
 .login-description {
   text-align: center;
-  color: #666;
+  color: #cccccc;
   font-size: 1.1rem;
   margin-bottom: 2rem;
   line-height: 1.5;
@@ -41,7 +42,7 @@
 }
 
 .form-group label {
-  color: #333;
+  color: #ffffff;
   font-weight: 600;
   font-size: 0.95rem;
 }
@@ -49,16 +50,22 @@
 .form-group input {
   width: 100%;
   padding: 0.8rem;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   font-size: 1rem;
   transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: #003049;
-  box-shadow: 0 0 0 2px rgba(0, 48, 73, 0.1);
+  border-color: #00D1FF;
+  box-shadow: 0 0 0 2px rgba(0, 209, 255, 0.1);
+}
+
+.form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .login-submit-btn {

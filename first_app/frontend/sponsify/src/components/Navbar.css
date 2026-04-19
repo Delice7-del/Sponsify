@@ -1,26 +1,42 @@
 /* src/components/Navbar.css */
 .navbar {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 1000px;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #003049;
-  padding: 1.2rem 3rem;
-  color: white;
-  font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background-color: rgba(13, 18, 22, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  padding: 0.6rem 2rem;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .navbar__logo {
-  flex: 0 0 auto;
-  margin-right: 3rem;
+  flex: 1;
 }
 
 .navbar__logo a {
   color: white;
-  font-weight: bold;
-  font-size: 1.8rem;
+  font-weight: 800;
+  font-size: 1.4rem;
   text-decoration: none;
-  letter-spacing: 0.5px;
+  letter-spacing: -0.03em;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-transform: uppercase;
 }
 
 .navbar__links {
@@ -30,49 +46,66 @@
   margin: 0;
   padding: 0;
   align-items: center;
+  flex: 2;
+  justify-content: center;
 }
 
 .navbar__links li a {
-  color: white;
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
-  transition: color 0.3s ease;
-  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .navbar__links li a:hover {
-  color: #ffd60a;
-}
-
-.sponsor-login-btn {
-  background-color: #ffd60a;
-  color: #003049 !important;
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: all 0.3s ease !important;
-}
-
-.sponsor-login-btn:hover {
-  background-color: #ffed4a;
-  color: #003049 !important;
-  transform: translateY(-2px);
-}
-
-.logout-btn {
-  background-color: transparent;
   color: white;
-  border: 2px solid #ffd60a;
-  border-radius: 6px;
-  cursor: pointer;
-  font: inherit;
-  padding: 0.5rem 1.2rem;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
-.logout-btn:hover {
-  background-color: #ffd60a;
-  color: #003049;
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.cta-btn {
+  background-color: #e5d5c0; /* BORA Tan/Gold color */
+  color: #1a1a1a;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.cta-btn:hover {
+  background-color: #f5eadd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(229, 213, 192, 0.3);
 }
 
 .favorites-link {
@@ -82,7 +115,7 @@
 }
 
 .favorites-link svg {
-  color: #ffd60a;
+  color: var(--accent);
   transition: transform 0.3s ease;
 }
 
@@ -91,30 +124,25 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 1rem 1.5rem;
-  }
-
-  .navbar__logo {
-    margin-right: 2rem;
-  }
-
-  .navbar__logo a {
-    font-size: 1.5rem;
-  }
-
+@media (max-width: 1100px) {
   .navbar__links {
     gap: 1.5rem;
   }
+}
 
-  .navbar__links li a {
-    font-size: 1rem;
+@media (max-width: 900px) {
+  .navbar__links {
+    display: none;
   }
-
-  .sponsor-login-btn,
-  .logout-btn {
-    padding: 0.4rem 1rem;
-    font-size: 1rem;
+  
+  .navbar__container {
+    padding: 0.5rem 1.2rem;
   }
 }
+
+@media (max-width: 480px) {
+  .nav-link {
+    display: none;
+  }
+}
+
