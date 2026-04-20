@@ -3,7 +3,7 @@ import { UserPlus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
-import "./Signup.css";
+import "./SignUp.css";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
