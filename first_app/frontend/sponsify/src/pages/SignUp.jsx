@@ -17,7 +17,10 @@ const Signup = () => {
     setLoading(true);
     
     try {
-      await axios.post("/api/auth/register", { name, email, password });
+const res = await axios.post(
+  "https://sponsify-zk06.onrender.com/api/auth/register",
+  { name, email, password }
+);
       
       toast.success("Account created successfully! Please log in.");
       

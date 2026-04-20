@@ -15,7 +15,10 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post("/api/auth/login", { email, password });
+     const res = await axios.post(
+  "https://sponsify-zk06.onrender.com/api/auth/login",
+  { email, password }
+);
       
       // Store tokens and user info
       localStorage.setItem("token", res.data.accessToken);
