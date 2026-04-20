@@ -10,7 +10,10 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
-
+ 
+app.get("/", (req, res) => {
+  res.send("🚀 Sponsify Backend is running successfully!");
+});
 // Database Connection
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected successfully"))
