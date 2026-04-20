@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import Home from "./pages/Home";
 import Sponsorship from "./pages/Sponsorship";
@@ -25,6 +26,34 @@ import Outreach from "./pages/Outreach";
 const App = () => {
   return (
     <div className="app-wrapper">
+      <Toaster 
+        position="top-right"
+        toastOptions={{
+          className: '',
+          style: {
+            background: '#0D1216',
+            color: '#fff',
+            border: '1px solid rgba(0, 209, 255, 0.1)',
+            padding: '16px',
+            fontSize: '14px',
+            fontFamily: 'Urbanist, sans-serif',
+            borderRadius: '12px',
+            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+          },
+          success: {
+            iconTheme: {
+              primary: '#00D1FF',
+              secondary: '#0D1216',
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: '#EF4444',
+              secondary: '#0D1216',
+            },
+          },
+        }}
+      />
       <Navbar />
 
       <main className="main-content">

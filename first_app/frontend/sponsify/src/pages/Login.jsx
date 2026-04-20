@@ -2,22 +2,37 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LogIn } from "lucide-react";
 import axios from "axios";
+import toast from "react-hot-toast";
 import "./Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const res = await axios.post("/api/auth/login", { email, password });
-      localStorage.setItem("token", res.data.token);
-      navigate("/");
+      
+      // Store tokens and user info
+      localStorage.setItem("token", res.data.accessToken);
+      localStorage.setItem("refreshToken", res.data.refreshToken);
+      localStorage.setItem("role", res.data.role);
+      
+      toast.success(`Welcome back, ${res.data.name}!`);
+      
+      // Small delay for the toast to be seen before redirect
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
+      const message = err.response?.data?.message || "Login failed. Please check your credentials.";
+      toast.error(message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -26,8 +41,6 @@ const Login = () => {
       <div className="login-card">
         <h1>LOGIN</h1>
         <p className="card-subtitle">Enter your credentials to access your dashboard.</p>
-        
-        {error && <p className="error-msg">{error}</p>}
         
         <form onSubmit={handleSubmit} className="login-form">
           <div className="form-group">
@@ -38,6 +51,7 @@ const Login = () => {
               value={email}
               required
               onChange={(e) => setEmail(e.target.value)}
+              disabled={loading}
             />
           </div>
           
@@ -49,11 +63,12 @@ const Login = () => {
               value={password}
               required
               onChange={(e) => setPassword(e.target.value)}
+              disabled={loading}
             />
           </div>
           
-          <button type="submit" className="login-btn">
-            <LogIn size={18} /> SAVE AND CONTINUE
+          <button type="submit" className="login-btn" disabled={loading}>
+            {loading ? "AUTHENTICATING..." : <><LogIn size={18} /> SAVE AND CONTINUE</>}
           </button>
         </form>
       </div>

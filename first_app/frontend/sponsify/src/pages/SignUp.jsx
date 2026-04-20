@@ -1,15 +1,35 @@
 import React, { useState } from "react";
 import { UserPlus } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import toast from "react-hot-toast";
 import "./Signup.css";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`Signing up ${name} with email ${email}`);
+    setLoading(true);
+    
+    try {
+      await axios.post("/api/auth/register", { name, email, password });
+      
+      toast.success("Account created successfully! Please log in.");
+      
+      setTimeout(() => {
+        navigate("/login");
+      }, 1500);
+    } catch (err) {
+      const message = err.response?.data?.message || "Registration failed. Please try again.";
+      toast.error(message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -27,6 +47,7 @@ const Signup = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
+              disabled={loading}
             />
           </div>
 
@@ -38,6 +59,7 @@ const Signup = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              disabled={loading}
             />
           </div>
 
@@ -49,11 +71,12 @@ const Signup = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              disabled={loading}
             />
           </div>
 
-          <button type="submit" className="signup-btn">
-            <UserPlus size={18} /> CREATE ACCOUNT
+          <button type="submit" className="signup-btn" disabled={loading}>
+            {loading ? "CREATING ACCOUNT..." : <><UserPlus size={18} /> CREATE ACCOUNT</>}
           </button>
         </form>
       </div>

@@ -2,6 +2,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ShieldCheck } from "lucide-react";
+import toast from "react-hot-toast";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -13,7 +14,11 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("refreshToken");
     localStorage.removeItem("role");
+    
+    toast.success("Successfully logged out. See you soon!");
+    
     navigate("/login");
   };
 
@@ -56,7 +61,7 @@ const Navbar = () => {
           {isLoggedIn ? (
             <>
               {isAdmin && (
-                <Link to="/admin-dashboard" className="nav-link">
+                <Link to="/admin" className="nav-link">
                   Dashboard
                 </Link>
               )}
