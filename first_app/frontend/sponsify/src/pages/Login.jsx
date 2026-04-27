@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LogIn } from "lucide-react";
-import axios from "axios";
+import API from "../api/axios";
 import toast from "react-hot-toast";
 import "./Login.css";
 
@@ -15,8 +15,8 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     try {
-     const res = await axios.post(
-  "https://sponsify-zk06.onrender.com/api/auth/login",
+     const res = await API.post(
+  "/api/auth/login",
   { email, password }
 );
       
