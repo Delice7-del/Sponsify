@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { UserPlus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import API from "../api/axios";
 import toast from "react-hot-toast";
 import "./SignUp.css";
 
@@ -17,8 +17,8 @@ const Signup = () => {
     setLoading(true);
     
     try {
-const res = await axios.post(
-  "https://sponsify-zk06.onrender.com/api/auth/register",
+const res = await API.post(
+  "/api/auth/register",
   { name, email, password }
 );
       
